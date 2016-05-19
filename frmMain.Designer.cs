@@ -30,6 +30,7 @@
             this.lblDirection = new System.Windows.Forms.Label();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.btnClearStats = new System.Windows.Forms.Button();
             this.grpEmployeeFile.SuspendLayout();
             this.grpSortMethod.SuspendLayout();
             this.grpSortDecision.SuspendLayout();
@@ -309,9 +310,21 @@
             this.lblTime.TabIndex = 14;
             this.lblTime.Text = "Time (ms):";
             // 
+            // btnClearStats
+            // 
+            this.btnClearStats.AutoEllipsis = true;
+            this.btnClearStats.Location = new System.Drawing.Point(595, 223);
+            this.btnClearStats.Name = "btnClearStats";
+            this.btnClearStats.Size = new System.Drawing.Size(140, 23);
+            this.btnClearStats.TabIndex = 15;
+            this.btnClearStats.Text = "Clear Statistics";
+            this.btnClearStats.UseVisualStyleBackColor = true;
+            this.btnClearStats.Click += new System.EventHandler(this.btnClearStats_Click);
+            // 
             // frmMain
             // 
             this.ClientSize = new System.Drawing.Size(751, 446);
+            this.Controls.Add(this.btnClearStats);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblNumberOfRecords);
             this.Controls.Add(this.lblDirection);
@@ -366,4 +379,5 @@
     private System.Windows.Forms.Label lblDirection;
     private System.Windows.Forms.Label lblNumberOfRecords;
     private System.Windows.Forms.Label lblTime;
+    private System.Windows.Forms.Button btnClearStats;
 }

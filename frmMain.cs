@@ -312,4 +312,9 @@ public partial class frmMain : Form
             lstDisplayEmployees.Items.Add(result);
         }
     }
+
+    private void btnClearStats_Click(object sender, EventArgs e)
+    {
+        lstDisplaySortingStatistics.Items.Clear();
+    }
 }
