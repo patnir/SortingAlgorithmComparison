@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class clsPeople
+public class clsPerson
 {
     public string LastName;
     public string FirstName;

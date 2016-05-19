@@ -8,21 +8,21 @@
             this.lblEmployees = new System.Windows.Forms.Label();
             this.lblSortingOptions = new System.Windows.Forms.Label();
             this.grpEmployeeFile = new System.Windows.Forms.GroupBox();
-            this.radSmallEmployeeFileUnsorted = new System.Windows.Forms.RadioButton();
-            this.radSmallEmployeeFileReverse = new System.Windows.Forms.RadioButton();
-            this.radBigEmployeeFileUnsorted = new System.Windows.Forms.RadioButton();
             this.radBigEmployeeFileReverse = new System.Windows.Forms.RadioButton();
+            this.radBigEmployeeFileUnsorted = new System.Windows.Forms.RadioButton();
+            this.radSmallEmployeeFileReverse = new System.Windows.Forms.RadioButton();
+            this.radSmallEmployeeFileUnsorted = new System.Windows.Forms.RadioButton();
             this.grpSortMethod = new System.Windows.Forms.GroupBox();
-            this.radBubble = new System.Windows.Forms.RadioButton();
-            this.radIComparer = new System.Windows.Forms.RadioButton();
-            this.radLINQ = new System.Windows.Forms.RadioButton();
-            this.radNoneUnsorted = new System.Windows.Forms.RadioButton();
-            this.grpSortDecision = new System.Windows.Forms.GroupBox();
-            this.radAscending = new System.Windows.Forms.RadioButton();
-            this.radDescending = new System.Windows.Forms.RadioButton();
-            this.btnLoadSort = new System.Windows.Forms.Button();
             this.radMergeSort = new System.Windows.Forms.RadioButton();
-            this.lstDisplaySortedEmployees = new System.Windows.Forms.ListBox();
+            this.radNoneUnsorted = new System.Windows.Forms.RadioButton();
+            this.radLINQ = new System.Windows.Forms.RadioButton();
+            this.radIComparer = new System.Windows.Forms.RadioButton();
+            this.radBubble = new System.Windows.Forms.RadioButton();
+            this.grpSortDecision = new System.Windows.Forms.GroupBox();
+            this.radDescending = new System.Windows.Forms.RadioButton();
+            this.radAscending = new System.Windows.Forms.RadioButton();
+            this.btnLoadSort = new System.Windows.Forms.Button();
+            this.lstDisplaySortingStatistics = new System.Windows.Forms.ListBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblSortingHistory = new System.Windows.Forms.Label();
             this.lblFileName = new System.Windows.Forms.Label();
@@ -78,27 +78,16 @@
             this.grpEmployeeFile.TabStop = false;
             this.grpEmployeeFile.Text = "Employee File:";
             // 
-            // radSmallEmployeeFileUnsorted
+            // radBigEmployeeFileReverse
             // 
-            this.radSmallEmployeeFileUnsorted.AutoSize = true;
-            this.radSmallEmployeeFileUnsorted.Location = new System.Drawing.Point(18, 29);
-            this.radSmallEmployeeFileUnsorted.Name = "radSmallEmployeeFileUnsorted";
-            this.radSmallEmployeeFileUnsorted.Size = new System.Drawing.Size(156, 17);
-            this.radSmallEmployeeFileUnsorted.TabIndex = 0;
-            this.radSmallEmployeeFileUnsorted.TabStop = true;
-            this.radSmallEmployeeFileUnsorted.Text = "1,000 Employees - unsorted";
-            this.radSmallEmployeeFileUnsorted.UseVisualStyleBackColor = true;
-            // 
-            // radSmallEmployeeFileReverse
-            // 
-            this.radSmallEmployeeFileReverse.AutoSize = true;
-            this.radSmallEmployeeFileReverse.Location = new System.Drawing.Point(18, 52);
-            this.radSmallEmployeeFileReverse.Name = "radSmallEmployeeFileReverse";
-            this.radSmallEmployeeFileReverse.Size = new System.Drawing.Size(150, 17);
-            this.radSmallEmployeeFileReverse.TabIndex = 1;
-            this.radSmallEmployeeFileReverse.TabStop = true;
-            this.radSmallEmployeeFileReverse.Text = "1,000 Employees - reverse";
-            this.radSmallEmployeeFileReverse.UseVisualStyleBackColor = true;
+            this.radBigEmployeeFileReverse.AutoSize = true;
+            this.radBigEmployeeFileReverse.Location = new System.Drawing.Point(18, 98);
+            this.radBigEmployeeFileReverse.Name = "radBigEmployeeFileReverse";
+            this.radBigEmployeeFileReverse.Size = new System.Drawing.Size(162, 17);
+            this.radBigEmployeeFileReverse.TabIndex = 3;
+            this.radBigEmployeeFileReverse.TabStop = true;
+            this.radBigEmployeeFileReverse.Text = "15,000 Employees - unsorted";
+            this.radBigEmployeeFileReverse.UseVisualStyleBackColor = true;
             // 
             // radBigEmployeeFileUnsorted
             // 
@@ -111,16 +100,27 @@
             this.radBigEmployeeFileUnsorted.Text = "15,000 Employees - unsorted";
             this.radBigEmployeeFileUnsorted.UseVisualStyleBackColor = true;
             // 
-            // radBigEmployeeFileReverse
+            // radSmallEmployeeFileReverse
             // 
-            this.radBigEmployeeFileReverse.AutoSize = true;
-            this.radBigEmployeeFileReverse.Location = new System.Drawing.Point(18, 98);
-            this.radBigEmployeeFileReverse.Name = "radBigEmployeeFileReverse";
-            this.radBigEmployeeFileReverse.Size = new System.Drawing.Size(162, 17);
-            this.radBigEmployeeFileReverse.TabIndex = 3;
-            this.radBigEmployeeFileReverse.TabStop = true;
-            this.radBigEmployeeFileReverse.Text = "15,000 Employees - unsorted";
-            this.radBigEmployeeFileReverse.UseVisualStyleBackColor = true;
+            this.radSmallEmployeeFileReverse.AutoSize = true;
+            this.radSmallEmployeeFileReverse.Location = new System.Drawing.Point(18, 52);
+            this.radSmallEmployeeFileReverse.Name = "radSmallEmployeeFileReverse";
+            this.radSmallEmployeeFileReverse.Size = new System.Drawing.Size(150, 17);
+            this.radSmallEmployeeFileReverse.TabIndex = 1;
+            this.radSmallEmployeeFileReverse.TabStop = true;
+            this.radSmallEmployeeFileReverse.Text = "1,000 Employees - reverse";
+            this.radSmallEmployeeFileReverse.UseVisualStyleBackColor = true;
+            // 
+            // radSmallEmployeeFileUnsorted
+            // 
+            this.radSmallEmployeeFileUnsorted.AutoSize = true;
+            this.radSmallEmployeeFileUnsorted.Location = new System.Drawing.Point(18, 29);
+            this.radSmallEmployeeFileUnsorted.Name = "radSmallEmployeeFileUnsorted";
+            this.radSmallEmployeeFileUnsorted.Size = new System.Drawing.Size(156, 17);
+            this.radSmallEmployeeFileUnsorted.TabIndex = 0;
+            this.radSmallEmployeeFileUnsorted.TabStop = true;
+            this.radSmallEmployeeFileUnsorted.Text = "1,000 Employees - unsorted";
+            this.radSmallEmployeeFileUnsorted.UseVisualStyleBackColor = true;
             // 
             // grpSortMethod
             // 
@@ -136,38 +136,16 @@
             this.grpSortMethod.TabStop = false;
             this.grpSortMethod.Text = "Sort Method:";
             // 
-            // radBubble
+            // radMergeSort
             // 
-            this.radBubble.AutoSize = true;
-            this.radBubble.Location = new System.Drawing.Point(17, 29);
-            this.radBubble.Name = "radBubble";
-            this.radBubble.Size = new System.Drawing.Size(58, 17);
-            this.radBubble.TabIndex = 0;
-            this.radBubble.TabStop = true;
-            this.radBubble.Text = "Bubble";
-            this.radBubble.UseVisualStyleBackColor = true;
-            // 
-            // radIComparer
-            // 
-            this.radIComparer.AutoSize = true;
-            this.radIComparer.Location = new System.Drawing.Point(17, 52);
-            this.radIComparer.Name = "radIComparer";
-            this.radIComparer.Size = new System.Drawing.Size(73, 17);
-            this.radIComparer.TabIndex = 1;
-            this.radIComparer.TabStop = true;
-            this.radIComparer.Text = "IComparer";
-            this.radIComparer.UseVisualStyleBackColor = true;
-            // 
-            // radLINQ
-            // 
-            this.radLINQ.AutoSize = true;
-            this.radLINQ.Location = new System.Drawing.Point(17, 75);
-            this.radLINQ.Name = "radLINQ";
-            this.radLINQ.Size = new System.Drawing.Size(50, 17);
-            this.radLINQ.TabIndex = 2;
-            this.radLINQ.TabStop = true;
-            this.radLINQ.Text = "LINQ";
-            this.radLINQ.UseVisualStyleBackColor = true;
+            this.radMergeSort.AutoSize = true;
+            this.radMergeSort.Location = new System.Drawing.Point(17, 98);
+            this.radMergeSort.Name = "radMergeSort";
+            this.radMergeSort.Size = new System.Drawing.Size(77, 17);
+            this.radMergeSort.TabIndex = 4;
+            this.radMergeSort.TabStop = true;
+            this.radMergeSort.Text = "Merge Sort";
+            this.radMergeSort.UseVisualStyleBackColor = true;
             // 
             // radNoneUnsorted
             // 
@@ -180,6 +158,39 @@
             this.radNoneUnsorted.Text = "None (unsorted)";
             this.radNoneUnsorted.UseVisualStyleBackColor = true;
             // 
+            // radLINQ
+            // 
+            this.radLINQ.AutoSize = true;
+            this.radLINQ.Location = new System.Drawing.Point(17, 75);
+            this.radLINQ.Name = "radLINQ";
+            this.radLINQ.Size = new System.Drawing.Size(50, 17);
+            this.radLINQ.TabIndex = 2;
+            this.radLINQ.TabStop = true;
+            this.radLINQ.Text = "LINQ";
+            this.radLINQ.UseVisualStyleBackColor = true;
+            // 
+            // radIComparer
+            // 
+            this.radIComparer.AutoSize = true;
+            this.radIComparer.Location = new System.Drawing.Point(17, 52);
+            this.radIComparer.Name = "radIComparer";
+            this.radIComparer.Size = new System.Drawing.Size(73, 17);
+            this.radIComparer.TabIndex = 1;
+            this.radIComparer.TabStop = true;
+            this.radIComparer.Text = "IComparer";
+            this.radIComparer.UseVisualStyleBackColor = true;
+            // 
+            // radBubble
+            // 
+            this.radBubble.AutoSize = true;
+            this.radBubble.Location = new System.Drawing.Point(17, 29);
+            this.radBubble.Name = "radBubble";
+            this.radBubble.Size = new System.Drawing.Size(58, 17);
+            this.radBubble.TabIndex = 0;
+            this.radBubble.TabStop = true;
+            this.radBubble.Text = "Bubble";
+            this.radBubble.UseVisualStyleBackColor = true;
+            // 
             // grpSortDecision
             // 
             this.grpSortDecision.Controls.Add(this.radDescending);
@@ -190,17 +201,6 @@
             this.grpSortDecision.TabIndex = 5;
             this.grpSortDecision.TabStop = false;
             this.grpSortDecision.Text = "Sort Decision:";
-            // 
-            // radAscending
-            // 
-            this.radAscending.AutoSize = true;
-            this.radAscending.Location = new System.Drawing.Point(18, 29);
-            this.radAscending.Name = "radAscending";
-            this.radAscending.Size = new System.Drawing.Size(75, 17);
-            this.radAscending.TabIndex = 0;
-            this.radAscending.TabStop = true;
-            this.radAscending.Text = "Ascending";
-            this.radAscending.UseVisualStyleBackColor = true;
             // 
             // radDescending
             // 
@@ -213,6 +213,17 @@
             this.radDescending.Text = "Descending";
             this.radDescending.UseVisualStyleBackColor = true;
             // 
+            // radAscending
+            // 
+            this.radAscending.AutoSize = true;
+            this.radAscending.Location = new System.Drawing.Point(18, 29);
+            this.radAscending.Name = "radAscending";
+            this.radAscending.Size = new System.Drawing.Size(75, 17);
+            this.radAscending.TabIndex = 0;
+            this.radAscending.TabStop = true;
+            this.radAscending.Text = "Ascending";
+            this.radAscending.UseVisualStyleBackColor = true;
+            // 
             // btnLoadSort
             // 
             this.btnLoadSort.Location = new System.Drawing.Point(595, 149);
@@ -223,24 +234,13 @@
             this.btnLoadSort.UseVisualStyleBackColor = true;
             this.btnLoadSort.Click += new System.EventHandler(this.btnLoadSort_Click);
             // 
-            // radMergeSort
+            // lstDisplaySortingStatistics
             // 
-            this.radMergeSort.AutoSize = true;
-            this.radMergeSort.Location = new System.Drawing.Point(17, 98);
-            this.radMergeSort.Name = "radMergeSort";
-            this.radMergeSort.Size = new System.Drawing.Size(77, 17);
-            this.radMergeSort.TabIndex = 4;
-            this.radMergeSort.TabStop = true;
-            this.radMergeSort.Text = "Merge Sort";
-            this.radMergeSort.UseVisualStyleBackColor = true;
-            // 
-            // lstDisplaySortedEmployees
-            // 
-            this.lstDisplaySortedEmployees.FormattingEnabled = true;
-            this.lstDisplaySortedEmployees.Location = new System.Drawing.Point(235, 279);
-            this.lstDisplaySortedEmployees.Name = "lstDisplaySortedEmployees";
-            this.lstDisplaySortedEmployees.Size = new System.Drawing.Size(500, 147);
-            this.lstDisplaySortedEmployees.TabIndex = 7;
+            this.lstDisplaySortingStatistics.FormattingEnabled = true;
+            this.lstDisplaySortingStatistics.Location = new System.Drawing.Point(235, 279);
+            this.lstDisplaySortingStatistics.Name = "lstDisplaySortingStatistics";
+            this.lstDisplaySortingStatistics.Size = new System.Drawing.Size(500, 147);
+            this.lstDisplaySortingStatistics.TabIndex = 7;
             // 
             // btnClose
             // 
@@ -317,7 +317,7 @@
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.lblSortingHistory);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lstDisplaySortedEmployees);
+            this.Controls.Add(this.lstDisplaySortingStatistics);
             this.Controls.Add(this.btnLoadSort);
             this.Controls.Add(this.grpSortDecision);
             this.Controls.Add(this.grpSortMethod);
@@ -356,7 +356,7 @@
     private System.Windows.Forms.RadioButton radDescending;
     private System.Windows.Forms.RadioButton radAscending;
     private System.Windows.Forms.Button btnLoadSort;
-    private System.Windows.Forms.ListBox lstDisplaySortedEmployees;
+    private System.Windows.Forms.ListBox lstDisplaySortingStatistics;
     private System.Windows.Forms.Button btnClose;
     private System.Windows.Forms.Label lblSortingHistory;
     private System.Windows.Forms.Label lblFileName;
