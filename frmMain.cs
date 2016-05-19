@@ -25,6 +25,11 @@ public partial class frmMain : Form
         Close();
     }
 
+    private void btnClearStats_Click(object sender, EventArgs e)
+    {
+        lstDisplaySortingStatistics.Items.Clear();
+    }
+
     private void btnLoadSort_Click(object sender, EventArgs e)
     {
         lstDisplayEmployees.Items.Clear();
@@ -35,7 +40,6 @@ public partial class frmMain : Form
         string sortTypeDisplayList;
         string directionDisplayList;
         string numberOfRecordsDisplayList;
-        int time = 0;
 
         // Check Employee File
 
@@ -114,7 +118,7 @@ public partial class frmMain : Form
 
         DateTime end = DateTime.Now;
 
-        time = end.Millisecond - start.Millisecond;
+        TimeSpan ts = end.Subtract(start);
 
         if (directionDisplayList == "Descending")
         {
@@ -127,25 +131,30 @@ public partial class frmMain : Form
             sortTypeDisplayList, 
             directionDisplayList, 
             numberOfRecordsDisplayList, 
-            time);
+            ts);
     }
 
     // Bubble Sort Functions: Start
 
-    private void bubbleSort() 
+    private void bubbleSort()
     {
         bool swapped = true;
         int i = 0;
-        while (swapped == true) {
+        while (swapped == true)
+        {
             swapped = false;
             i++;
-            for (int j = 0; j < mPerson.Count - i; j++) {
-                if (string.Compare(mPerson[j].LastName, mPerson[j + 1].LastName) > 0) {
-                    swap(j , j + 1);
+            for (int j = 0; j < mPerson.Count - i; j++)
+            {
+                if (string.Compare(mPerson[j].LastName, mPerson[j + 1].LastName) > 0)
+                {
+                    swap(j, j + 1);
                     swapped = true;
-                } 
-                else if (string.Compare(mPerson[j].LastName, mPerson[j + 1].LastName) == 0) {
-                    if (string.Compare(mPerson[j].FirstName, mPerson[j + 1].FirstName) > 0) {
+                }
+                else if (string.Compare(mPerson[j].LastName, mPerson[j + 1].LastName) == 0)
+                {
+                    if (string.Compare(mPerson[j].FirstName, mPerson[j + 1].FirstName) > 0)
+                    {
                         swap(j, j + 1);
                         swapped = true;
                     }
@@ -177,11 +186,8 @@ public partial class frmMain : Form
             orderby person.FirstName ascending
             orderby person.LastName ascending
             select person;
-        List<clsPerson> newPersonList = new List<clsPerson>();
-        foreach (clsPerson person in querySortPersonList)
-        {
-            newPersonList.Add(person);
-        }
+        List<clsPerson> newPersonList = new List<clsPerson>(querySortPersonList);
+
         mPerson = newPersonList;
     }
 
@@ -287,18 +293,19 @@ public partial class frmMain : Form
         }
     }
 
-    private void showSortingStatistics(string filename, 
+    private void showSortingStatistics(
+        string filename, 
         string sortType, 
         string direction, 
         string numberOfRecords, 
-        int time)
+        TimeSpan ts)
     {
         int padding = 16;
         string result = filename.PadRight(padding) 
             + sortType.PadRight(padding)
             + direction.PadRight(padding)
             + numberOfRecords.PadRight(padding)
-            + time.ToString();
+            + ts.TotalMilliseconds.ToString();
 
         lstDisplaySortingStatistics.Items.Add(result);
     }
@@ -311,10 +318,5 @@ public partial class frmMain : Form
             result = person.LastName + ", " + person.FirstName;
             lstDisplayEmployees.Items.Add(result);
         }
-    }
-
-    private void btnClearStats_Click(object sender, EventArgs e)
-    {
-        lstDisplaySortingStatistics.Items.Clear();
     }
 }
