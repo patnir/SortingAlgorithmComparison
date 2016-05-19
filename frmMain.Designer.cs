@@ -236,10 +236,12 @@
             // 
             // lstDisplaySortingStatistics
             // 
+            this.lstDisplaySortingStatistics.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstDisplaySortingStatistics.FormattingEnabled = true;
+            this.lstDisplaySortingStatistics.ItemHeight = 14;
             this.lstDisplaySortingStatistics.Location = new System.Drawing.Point(235, 279);
             this.lstDisplaySortingStatistics.Name = "lstDisplaySortingStatistics";
-            this.lstDisplaySortingStatistics.Size = new System.Drawing.Size(500, 147);
+            this.lstDisplaySortingStatistics.Size = new System.Drawing.Size(500, 144);
             this.lstDisplaySortingStatistics.TabIndex = 7;
             // 
             // btnClose

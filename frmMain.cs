@@ -30,50 +30,34 @@ public partial class frmMain : Form
         lstDisplayEmployees.Items.Clear();
         mPerson.Clear();
         mMergeSortPerson.Clear();
+
+        string filenameDisplayList;
+        string sortTypeDisplayList;
+        string directionDisplayList;
+        string numberOfRecordsDisplayList;
+        int time = 0;
+
         // Check Employee File
 
         if (radSmallEmployeeFileReverse.Checked == true) 
         {
+            filenameDisplayList = "Reverse1k.txt";
             loadInformationFromFile("Reverse1k.txt");
         }
         else if (radSmallEmployeeFileUnsorted.Checked == true)
         {
+            filenameDisplayList = "Unsorted.txt";
             loadInformationFromFile("Unsorted1k.txt");
         }
         else if (radBigEmployeeFileReverse.Checked == true)
         {
-            loadInformationFromFile("Reverse1k5.txt");
+            filenameDisplayList = "Reverse15k.txt";
+            loadInformationFromFile("Reverse15k.txt");
         }
         else if (radBigEmployeeFileUnsorted.Checked == true)
         {
+            filenameDisplayList = "Unsorted15k.txt";
             loadInformationFromFile("Unsorted15k.txt");
-        }
-        else
-        {
-            return;
-        }
-
-        // Check Sort Method
-
-        if (radBubble.Checked == true) 
-        {
-            bubbleSort();
-        }
-        else if (radIComparer.Checked == true) 
-        {
-            iComparerSort();
-        }
-        else if (radLINQ.Checked == true)
-        {
-            linqSort();
-        }
-        else if (radMergeSort.Checked == true)
-        {
-            mergeSort();
-        } 
-        else if (radNoneUnsorted.Checked == true) 
-        {
-
         }
         else
         {
@@ -82,8 +66,10 @@ public partial class frmMain : Form
 
         // Check Sort Decision
 
+        directionDisplayList = "Ascending";
         if (radDescending.Checked == true)
         {
+            directionDisplayList = "Descending";
             mPerson.Reverse();
         }
         else if (radAscending.Checked == false)
@@ -91,8 +77,60 @@ public partial class frmMain : Form
             return;
         }
 
-        showInformation();
+        numberOfRecordsDisplayList = mPerson.Count.ToString();
+
+        // Check Sort Method
+
+        DateTime start = DateTime.Now;
+
+        if (radBubble.Checked == true) 
+        {
+            sortTypeDisplayList = "Bubble";
+            bubbleSort();
+        }
+        else if (radIComparer.Checked == true) 
+        {
+            sortTypeDisplayList = "IComparer";
+            iComparerSort();
+        }
+        else if (radLINQ.Checked == true)
+        {
+            sortTypeDisplayList = "Linq";
+            linqSort();
+        }
+        else if (radMergeSort.Checked == true)
+        {
+            sortTypeDisplayList = "Merge Sort";
+            mergeSort();
+        } 
+        else if (radNoneUnsorted.Checked == true) 
+        {
+            sortTypeDisplayList = "Unsorted";
+        }
+        else
+        {
+            return;
+        }
+
+        DateTime end = DateTime.Now;
+
+        time = end.Millisecond - start.Millisecond;
+
+        if (directionDisplayList == "Descending")
+        {
+            mPerson.Reverse();
+        }
+
+        showSortedInformation();
+
+        showSortingStatistics(filenameDisplayList, 
+            sortTypeDisplayList, 
+            directionDisplayList, 
+            numberOfRecordsDisplayList, 
+            time);
     }
+
+    // Bubble Sort Functions: Start
 
     private void bubbleSort() 
     {
@@ -116,6 +154,16 @@ public partial class frmMain : Form
         }
     }
 
+    private void swap(int index1, int index2)
+    {
+        clsPerson temp = new clsPerson();
+        temp = mPerson[index1];
+        mPerson[index1] = mPerson[index2];
+        mPerson[index2] = temp;
+    }
+
+    // Bubble Sort Functions: End
+
     private void iComparerSort() 
     {
         clsPersonComparer personComparer = new clsPersonComparer();
@@ -136,6 +184,8 @@ public partial class frmMain : Form
         }
         mPerson = newPersonList;
     }
+
+    // Merge Sort Functions: Start
 
     private void mergeSort() 
     {
@@ -210,13 +260,7 @@ public partial class frmMain : Form
         }
     }
 
-    private void swap(int index1, int index2)
-    {
-        clsPerson temp = new clsPerson();
-        temp = mPerson[index1];
-        mPerson[index1] = mPerson[index2];
-        mPerson[index2] = temp;
-    }
+    // Merge Sort Functions: End
 
     private void loadInformationFromFile(string filename)
     {
@@ -242,7 +286,24 @@ public partial class frmMain : Form
                 + pathFileName + ".\n" + ex.Message);
         }
     }
-    private void showInformation() 
+
+    private void showSortingStatistics(string filename, 
+        string sortType, 
+        string direction, 
+        string numberOfRecords, 
+        int time)
+    {
+        int padding = 16;
+        string result = filename.PadRight(padding) 
+            + sortType.PadRight(padding)
+            + direction.PadRight(padding)
+            + numberOfRecords.PadRight(padding)
+            + time.ToString();
+
+        lstDisplaySortingStatistics.Items.Add(result);
+    }
+
+    private void showSortedInformation() 
     {
         string result = "";
         foreach (clsPerson person in mPerson) 
