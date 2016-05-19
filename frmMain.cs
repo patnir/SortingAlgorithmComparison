@@ -18,6 +18,9 @@ public partial class frmMain : Form
     public frmMain()
     {
         InitializeComponent();
+        radSmallEmployeeFileUnsorted.Checked = true;
+        radBubble.Checked = true;
+        radAscending.Checked = true;
     }
 
     private void btnClose_Click(object sender, EventArgs e)
