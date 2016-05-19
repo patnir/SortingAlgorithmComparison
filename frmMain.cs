@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class frmMain : Form
 {
@@ -64,8 +65,7 @@ public partial class frmMain : Form
         }
         else if (radLINQ.Checked == true)
         {
-            lstDisplayEmployees.Items.Clear();
-            return;
+            linqSort();
         }
         else if (radMergeSort.Checked == true)
         {
@@ -124,7 +124,17 @@ public partial class frmMain : Form
 
     private void linqSort()
     {
-
+        var querySortPersonList =
+            from person in mPerson
+            orderby person.FirstName ascending
+            orderby person.LastName ascending
+            select person;
+        List<clsPerson> newPersonList = new List<clsPerson>();
+        foreach (clsPerson person in querySortPersonList)
+        {
+            newPersonList.Add(person);
+        }
+        mPerson = newPersonList;
     }
 
     private void mergeSort() 
