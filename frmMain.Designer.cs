@@ -84,10 +84,10 @@
             this.radBigEmployeeFileReverse.AutoSize = true;
             this.radBigEmployeeFileReverse.Location = new System.Drawing.Point(18, 98);
             this.radBigEmployeeFileReverse.Name = "radBigEmployeeFileReverse";
-            this.radBigEmployeeFileReverse.Size = new System.Drawing.Size(162, 17);
+            this.radBigEmployeeFileReverse.Size = new System.Drawing.Size(156, 17);
             this.radBigEmployeeFileReverse.TabIndex = 3;
             this.radBigEmployeeFileReverse.TabStop = true;
-            this.radBigEmployeeFileReverse.Text = "15,000 Employees - unsorted";
+            this.radBigEmployeeFileReverse.Text = "15,000 Employees - reverse";
             this.radBigEmployeeFileReverse.UseVisualStyleBackColor = true;
             // 
             // radBigEmployeeFileUnsorted
@@ -304,7 +304,7 @@
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(683, 255);
+            this.lblTime.Location = new System.Drawing.Point(678, 255);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(55, 13);
             this.lblTime.TabIndex = 14;
