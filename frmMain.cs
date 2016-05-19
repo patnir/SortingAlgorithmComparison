@@ -118,7 +118,8 @@ public partial class frmMain : Form
 
     private void iComparerSort() 
     {
-
+        clsPersonComparer personComparer = new clsPersonComparer();
+        mPerson.Sort(personComparer);
     }
 
     private void linqSort()
